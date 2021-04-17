@@ -1,3 +1,4 @@
+import { HttpService } from './../../services/http.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes-list.component.css']
 })
 export class NotesListComponent implements OnInit {
+  notes
 
-  constructor() { }
+  constructor(private httpService: HttpService) {}
 
   ngOnInit() {
+    this.notes = this.httpService.postPatch<any>('', null);
+    console.log(this.notes);
   }
 
 }
