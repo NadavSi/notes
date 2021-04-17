@@ -1,3 +1,4 @@
+import { HttpService } from './services/http.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'notes';
+  messages = this.httpService.postPatch<any>('','');
+
+  constructor(private httpService: HttpService) {
+
+  }
 }
