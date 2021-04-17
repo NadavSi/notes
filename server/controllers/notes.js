@@ -1,7 +1,7 @@
 // const Note = require("../models/note");
 
 exports.getNotes = (req, res, next) => {
-  res.send([{ message: 'testing' },{message: 't1'}]);
+  res.send([{ message: 'testing', date: new Date(), creator: "nadav" },{message: 't1', date: new Date(), creator: "not me" }]);
 }
 exports.getNote = (req, res, next) => {
   res.send([]);
