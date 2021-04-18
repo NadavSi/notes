@@ -1,19 +1,27 @@
-<div class="container">
-  <div *ngFor="let note of notes">
-    <div style="border: 1px solid; border-radius: 5px; margin: 3px 0;">
-      <div fxflex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="noteTitle">
-        <div fxFlex="10%" fxFlexOrder="1" style="padding: 5px 0 5px 5px">
-          <span class="badge badge-pill badge-success">
-            {{ note.date | date }}
-          </span>
-        </div>
-        <div fxFlex="80%" fxFlexOrder="2" class="noteContent">
-          {{ note.message }}
-        </div>
-        <div fxFlex="10%" fxFlexOrder="3">
-          {{ note.creator }}
+<div fxFlex fxLayout="row" fxLayout.xs="column-reverse" fxLayout.sm="column-reverse">
+  <div fxFlex="70">
+    <div class="container">
+      <div *ngFor="let note of notes">
+        <div style="border: 1px solid; border-radius: 5px; margin: 3px 0;">
+          <div fxflex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="noteTitle">
+            <div fxFlex="10%" fxFlex.sm="30%" fxFlex.xs="30%" fxFlexOrder="1" style="padding: 5px 0 5px 5px">
+              <span class="badge badge-pill badge-success">
+                {{ note.date | date }}
+              </span>
+            </div>
+            <div fxFlex="80%" fxFlex.sm="40%" fxFlex.xs="40%" fxFlexOrder="2" class="noteContent">
+              {{ note.message }}
+            </div>
+            <div fxFlex="10%" fxFlex.sm="30%" fxFlex.xs="30%" fxFlexOrder="3">
+              {{ note.creator }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div fxFlex="30">
+    <app-notes-form></app-notes-form>
+  </div>
+
 </div>
