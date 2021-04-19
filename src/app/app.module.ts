@@ -1,3 +1,4 @@
+import { NotesComponent } from './notes/notes.component';
 import { TopNavComponent } from './topNav/top-nav/top-nav.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,8 @@ import { NotesFormComponent } from './notes/notes-form/notes-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-      TopNavComponent,
+    TopNavComponent,
+      NotesComponent,
       NotesListComponent,
       NotesFormComponent
 

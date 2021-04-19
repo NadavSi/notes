@@ -1,4 +1,4 @@
-import { HttpService } from './../../services/http.service';
+import { NotesService } from './../notes.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes-list.component.css']
 })
 export class NotesListComponent implements OnInit {
-  notes = [];
+  public notes = [];
 
-  constructor(private httpService: HttpService) {}
+  constructor(private notesService: NotesService) {}
 
   ngOnInit() {
-    this.httpService.postPatch<any>('', '')
-      .subscribe(data => {
-        this.notes = data;
-    })
+    console.log(this.notesService.fetchNotes());
+    this.notesService.getNotesData().subscribe((notes: []) => {
+      this.notes = notes;
+    });
     // console.log(this.notes);
   }
 
