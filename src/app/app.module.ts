@@ -8,12 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './modules/material.module';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
+import { NotesFormComponent } from './notes/notes-form/notes-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
       TopNavComponent,
-      NotesListComponent
+      NotesListComponent,
+      NotesFormComponent
+
    ],
   imports: [
     BrowserModule,
