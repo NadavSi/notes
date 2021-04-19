@@ -1,4 +1,3 @@
-import { FlexLayoutModule } from '@angular/flex-layout';
 import {NgModule} from '@angular/core';
 import {A11yModule} from '@angular/cdk/a11y';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -38,9 +37,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   exports: [
@@ -89,5 +90,4 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FlexLayoutModule
   ]
 })
-
 export class MaterialModule { }
