@@ -6,14 +6,14 @@
           <div fxflex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="noteTitle">
             <div fxFlex="10%" fxFlex.sm="30%" fxFlex.xs="30%" fxFlexOrder="1" style="padding: 5px 0 5px 5px">
               <span class="badge badge-pill badge-success">
-                {{ note.date | date }}
+                {{ note.createdAt | date }}
               </span>
             </div>
             <div fxFlex="80%" fxFlex.sm="40%" fxFlex.xs="40%" fxFlexOrder="2" class="noteContent">
-              {{ note.message }}
+              {{ note.title }}
             </div>
             <div fxFlex="10%" fxFlex.sm="30%" fxFlex.xs="30%" fxFlexOrder="3">
-              {{ note.creator }}
+              {{ note.createdBy }} 
             </div>
           </div>
         </div>

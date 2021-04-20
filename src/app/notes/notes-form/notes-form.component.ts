@@ -1,3 +1,4 @@
+import { Note } from './../note.model';
 import { NotesService } from './../notes.service';
 import { Component, OnInit } from '@angular/core';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
@@ -8,7 +9,7 @@ import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
   styleUrls: ['./notes-form.component.css']
 })
 export class NotesFormComponent implements OnInit {
-
+  note: Note = new Note();
   creationDate = new Date();
 
   constructor(private notesService: NotesService) { }
@@ -28,7 +29,7 @@ export class NotesFormComponent implements OnInit {
     return '';
   }
 
-  onSave() {
-    this.notesService.createNote();
+  onSave(note) {
+    this.notesService.createNote(this.note);
   }
 }

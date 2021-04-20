@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './modules/material.module';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { NotesFormComponent } from './notes/notes-form/notes-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,14 @@ import { NotesFormComponent } from './notes/notes-form/notes-form.component';
       NotesComponent,
       NotesListComponent,
       NotesFormComponent
-
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

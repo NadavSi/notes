@@ -1,5 +1,7 @@
+import { Note } from './../note.model';
 import { NotesService } from './../notes.service';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-notes-list',
@@ -7,16 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes-list.component.css']
 })
 export class NotesListComponent implements OnInit {
-  public notes = [];
+  public notes: Note[] = [];
+  private notesSub: Subscription;
 
-  constructor(private notesService: NotesService) {}
+  constructor(private notesService: NotesService) { }
 
   ngOnInit() {
-    console.log(this.notesService.fetchNotes());
-    this.notesService.getNotesData().subscribe((notes: []) => {
+    this.notesService.fetchNotes();
+    this.notesSub = this.notesService.getNotesData().subscribe((notes: Note[]) => {
       this.notes = notes;
     });
     // console.log(this.notes);
   }
 
+  ngOnDestroy(): void {
+    this.notesSub.unsubscribe();
+  }
 }

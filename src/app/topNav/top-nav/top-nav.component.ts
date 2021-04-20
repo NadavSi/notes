@@ -1,3 +1,4 @@
+import { NotesService } from './../../notes/notes.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private notesService: NotesService) { }
 
   ngOnInit() {
   }
 
+  createNote() {
+
+  }
 }
