@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSave(noteForm.value)" #noteForm="ngForm">
+<form (ngSubmit)="onSave(noteForm)" #noteForm="ngForm">
   <mat-card class="example-card">
     <mat-card-header style="display: block">
       <mat-card-title fxFlex fxLayoutAlign="space-between center">
@@ -24,9 +24,9 @@
           <mat-form-field appearance="fill">
             <mat-label>Priority</mat-label>
             <mat-select [(ngModel)]="note.priority" name="priority">
-              <mat-option value="1">Normal</mat-option>
-              <mat-option value="2">Rush</mat-option>
-              <mat-option value="3">Urgent</mat-option>
+              <mat-option value="Normal">Normal</mat-option>
+              <mat-option value="Rush">Rush</mat-option>
+              <mat-option value="Urgent">Urgent</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field class="example-full-width" appearance="fill">

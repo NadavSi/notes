@@ -31,5 +31,6 @@ export class NotesFormComponent implements OnInit {
 
   onSave(note) {
     this.notesService.createNote(this.note);
+    note.reset()
   }
 }

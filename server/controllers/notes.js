@@ -1,17 +1,28 @@
-// const Note = require("../models/note");
+const Note = require("../models/note");
 
 exports.getNotes = (req, res, next) => {
-  res.send([
-    { title: 'testing', content: 'this is a test content 1', priority: 'Normal', createdAt: new Date(), completionDate: new Date(), createdBy: 1 },
-    { title: 'testing2', content: 'this is a test content 2', priority: 'Urgent', createdAt: new Date(), completionDate: new Date(), createdBy: 2},
-    { title: 'testing3', content: 'this is a test content 3', priority: 'Normal', createdAt: new Date(), completionDate: new Date(), createdBy: 1 }
-  ]);
+  // res.send([
+  //   { title: 'testing', content: 'this is a test content 1', priority: 'Normal', createdAt: new Date(), completionDate: new Date(), createdBy: 1 },
+  //   { title: 'testing2', content: 'this is a test content 2', priority: 'Urgent', createdAt: new Date(), completionDate: new Date(), createdBy: 2},
+  //   { title: 'testing3', content: 'this is a test content 3', priority: 'Normal', createdAt: new Date(), completionDate: new Date(), createdBy: 1 }
+  // ]);
+  Note.find()
+    .then(notes => {
+      res.status(200).json({
+        notes:notes
+      });
+    })
+    .catch();
 }
 exports.getNote = (req, res, next) => {
   res.send([]);
 }
 exports.createNote = (req, res, next) => {
-  res.send([]);
+  let note = new Note(req.body);
+  note.save();
+  res.status(201).json({
+    message: "note added"
+  });
  }
 exports.updateNote = (req, res, next) => {
   res.send([]);
