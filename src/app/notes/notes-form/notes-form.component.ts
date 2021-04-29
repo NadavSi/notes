@@ -11,6 +11,7 @@ import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 export class NotesFormComponent implements OnInit {
   note: Note = new Note();
   creationDate = new Date();
+  showNote = true;
 
   constructor(private notesService: NotesService) { }
 

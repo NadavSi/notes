@@ -1,57 +1,59 @@
-<form (ngSubmit)="onSave(noteForm)" #noteForm="ngForm">
-  <mat-card class="example-card">
-    <mat-card-header style="display: block">
-      <mat-card-title fxFlex fxLayoutAlign="space-between center">
-        <div>
-          <span>New Note</span>
-        </div>
-        <div>
-          <span style="font-size: 14px">{{ creationDate | date }}</span>
-        </div>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div fxFlex fxLayout="column">
-        <mat-form-field appearance="fill">
-          <mat-label>Title</mat-label>
-          <input matInput [(ngModel)]="note.title" name="title"/>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Add some flavor...</mat-label>
-          <textarea matInput [(ngModel)]="note.content" name="content"></textarea>
-        </mat-form-field>
-        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+<div *ngIf="showNote">
+  <form (ngSubmit)="onSave(noteForm)" #noteForm="ngForm">
+    <mat-card class="example-card">
+      <mat-card-header style="display: block">
+        <mat-card-title fxFlex fxLayoutAlign="space-between center">
+          <div>
+            <span>New Note</span>
+          </div>
+          <div>
+            <span style="font-size: 14px">{{ creationDate | date }}</span>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxFlex fxLayout="column">
           <mat-form-field appearance="fill">
-            <mat-label>Priority</mat-label>
-            <mat-select [(ngModel)]="note.priority" name="priority">
-              <mat-option value="Normal">Normal</mat-option>
-              <mat-option value="Rush">Rush</mat-option>
-              <mat-option value="Urgent">Urgent</mat-option>
-            </mat-select>
+            <mat-label>Title</mat-label>
+            <input matInput [(ngModel)]="note.title" name="title"/>
           </mat-form-field>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Completion Date</mat-label>
-            <input matInput [matDatepicker]="picker" disabled [(ngModel)]="note.completionDate" name="completionDate"/>
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker
-              [dateClass]="dateClass"
-              #picker
-              disabled="false"
-            ></mat-datepicker>
+          <mat-form-field appearance="fill">
+            <mat-label>Add some flavor...</mat-label>
+            <textarea matInput [(ngModel)]="note.content" name="content"></textarea>
           </mat-form-field>
+          <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-form-field appearance="fill">
+              <mat-label>Priority</mat-label>
+              <mat-select [(ngModel)]="note.priority" name="priority">
+                <mat-option value="Normal">Normal</mat-option>
+                <mat-option value="Rush">Rush</mat-option>
+                <mat-option value="Urgent">Urgent</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Completion Date</mat-label>
+              <input matInput [matDatepicker]="picker" disabled [(ngModel)]="note.completionDate" name="completionDate"/>
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker
+                [dateClass]="dateClass"
+                #picker
+                disabled="false"
+              ></mat-datepicker>
+            </mat-form-field>
+          </div>
         </div>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
-        <button mat-raised-button type="submit" color="primary" >
-          Save
-        </button>
-        <button mat-raised-button color="accent">Accent</button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
-</form>
+      </mat-card-content>
+      <mat-card-actions>
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+          <button mat-raised-button type="submit" color="primary" >
+            Save
+          </button>
+          <button mat-raised-button color="accent">Accent</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
