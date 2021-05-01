@@ -21,7 +21,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
         display: 'none'
       })),
       transition('open <=> closed', [
-        style({ display: 'block' }), 
+        style({ display: 'block' }),
         animate('0.5s')
       ])
     ]),
@@ -54,11 +54,15 @@ export class NotesListComponent implements OnInit {
     });
     this.notesService.toggleNote.subscribe(
       (status) => {
-        if (status == 'new') { this.isOpen = true; }
+        if (status == 'new' || status == 'update') { this.isOpen = true; }
         if (status == 'close') { this.isOpen = false; }
       }
     );
     // console.log(this.notes);
+  }
+
+  onUpdate() {
+    this.notesService.toggleNote.emit('update');
   }
 
   ngOnDestroy(): void {

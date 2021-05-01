@@ -26,6 +26,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css",
+              "src/theme.css",
               "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
@@ -93,7 +94,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/theme.css"
             ],
             "scripts": []
           }
