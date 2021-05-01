@@ -1,5 +1,5 @@
 <div fxFlex fxLayout="row" fxLayout.xs="column-reverse" fxLayout.sm="column-reverse">
-  <div fxFlex="70" fxFlex.xs="100" fxLayoutAlign.xs="space-around center">
+  <div [@shareAll]="isOpen ? 'share' : 'all'" fxFlex="70" fxFlex.xs="100" fxLayoutAlign.xs="space-around center">
     <div class="container">
       <div *ngFor="let note of notes">
         <div style="border: 1px solid; border-radius: 5px; margin: 3px 0;">
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div fxFlex="30" fxFlex.xs="100" >
+  <div [@openClose]="isOpen ? 'open' : 'closed'" fxFlex="30" fxFlex.xs="100" >
     <app-notes-form></app-notes-form>
   </div>
 </div>

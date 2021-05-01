@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpService } from '../services/http.service';
 import { map } from 'rxjs/operators'
+import { EventEmitter } from '@angular/core';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -10,6 +12,9 @@ export class NotesService {
   private note: Note;
   private notes: Note[] = [];
   private notesArray = new Subject<Note[]>();
+
+  toggleNote = new EventEmitter<string>();
+  
   constructor(private httpService: HttpService) {}
 
 

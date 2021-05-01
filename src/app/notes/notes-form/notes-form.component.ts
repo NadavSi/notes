@@ -16,6 +16,11 @@ export class NotesFormComponent implements OnInit {
   constructor(private notesService: NotesService) { }
 
   ngOnInit(): void {
+    this.notesService.toggleNote.subscribe(
+      (status) => {
+        if (status == 'new') { this.note = new Note(); }
+      }
+    );
   }
 
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
@@ -33,5 +38,9 @@ export class NotesFormComponent implements OnInit {
   onSave(note) {
     this.notesService.createNote(this.note);
     note.reset()
+  }
+
+  onClose() {
+    this.notesService.toggleNote.emit('close');
   }
 }
