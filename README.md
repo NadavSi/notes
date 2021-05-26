@@ -7,12 +7,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 to use free db register or login to mongo db atlas free cluster
 
-#in server folder
+### in server folder
   add .env file
   add following variables to file:
+  
     NODE_ENV=development
     # Set your database/API connection information here
-    MONGODB_CONN='<your mongo db atlas cluster path>'
+    MONGODB_CONN='(your mongo db atlas cluster path)'
 
 
 Run `npm run notes`. this will run bote server and client scripts and start the app. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
