@@ -11,6 +11,8 @@ import { MaterialModule } from './modules/material.module';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { NotesFormComponent } from './notes/notes-form/notes-form.component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

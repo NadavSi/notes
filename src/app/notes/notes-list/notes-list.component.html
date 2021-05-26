@@ -13,7 +13,19 @@
               {{ note.title }}
             </div>
             <div fxFlex="10%" fxFlex.sm="30%" fxFlex.xs="30%" fxFlexOrder="3">
-              {{ note.createdBy }}
+
+              <span [ngSwitch]="note.priority">
+              <span *ngSwitchCase="'Rush'">
+                <fa-icon [icon]="fireIcon" [styles]="{'stroke': 'red', 'color': 'red'}"></fa-icon>
+              </span>
+              <span *ngSwitchCase="'Urgent'">
+                <fa-icon [icon]="bellIcon" [styles]="{'stroke': 'red', 'color': 'orange'}"></fa-icon>
+              </span>
+              <span *ngSwitchDefault>
+                <!-- <fa-icon [icon]="['far', 'bell']"></fa-icon> -->
+              </span>
+              {{ note.priority }}
+            </span>
             </div>
           </div>
         </div>

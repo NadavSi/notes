@@ -3,6 +3,7 @@ import { NotesService } from './../notes.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { faBell, faFire } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-notes-list',
@@ -44,7 +45,8 @@ export class NotesListComponent implements OnInit {
   public notes: Note[] = [];
   private notesSub: Subscription;
   isOpen = false;
-
+  fireIcon = faFire;
+  bellIcon = faBell;
   constructor(private notesService: NotesService) { }
 
   ngOnInit() {
