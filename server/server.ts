@@ -17,7 +17,7 @@ mongoose.connect('mongodb+srv://notesUser:xHZoByv9pBnyaXRS@cluster0.qbgk6.mongod
     console.log('connected to db');
   })
   .catch(() => {
-    console.log('failed to connect');  
+    console.log('failed to connect');
   });
 
 app.use(cors());
@@ -37,14 +37,16 @@ fs.readdirSync(routePath).forEach(function(file) {
 
 app.listen(3000, '127.0.0.1', function () {
   console.log('init server');
-})
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
+  console.log(req.url);
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

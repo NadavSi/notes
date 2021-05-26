@@ -12,13 +12,22 @@ export class NotesFormComponent implements OnInit {
   note: Note = new Note();
   creationDate = new Date();
   showNote = true;
+  status = 'new';
 
   constructor(private notesService: NotesService) { }
 
   ngOnInit(): void {
     this.notesService.toggleNote.subscribe(
       (status) => {
-        if (status == 'new') { this.note = new Note(); }
+        this.status = status;
+        if (status == 'new') {
+          this.note = new Note();
+        } else {
+          this.notesService.fetchNote("60807e26bf7ea653e004e66e")
+          .subscribe(note => {
+            this.note = note;
+          });
+        }
       }
     );
   }
@@ -36,7 +45,11 @@ export class NotesFormComponent implements OnInit {
   }
 
   onSave(note) {
-    this.notesService.createNote(this.note);
+    if (this.status == 'new') {
+      this.notesService.createNote(this.note);
+    } else {
+      this.notesService.updateNote();
+    }
     note.reset()
   }
 

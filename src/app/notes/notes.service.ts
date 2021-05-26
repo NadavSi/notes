@@ -14,12 +14,12 @@ export class NotesService {
   private notesArray = new Subject<Note[]>();
 
   toggleNote = new EventEmitter<string>();
-  
+
   constructor(private httpService: HttpService) {}
 
 
   fetchNotes() {
-    this.httpService.postPatch<any>('', '')
+    this.httpService.postPatch<any>('notes', '')
       .pipe(map((data)=> {
         return data.notes.map(note => {
           return {
@@ -38,12 +38,12 @@ export class NotesService {
     return this.notesArray.asObservable();
   }
   fetchNote(id) {
-
+    return this.httpService.getRemove<any>(id, 'notes');
   }
   createNote(note: Note) {
     console.log(note);
     this.note = note;
-    this.httpService.postPatch<any>('new', note).subscribe((data) => {
+    this.httpService.postPatch<any>('notes/new', note).subscribe((data) => {
 
     });
     this.notes.push(this.note);

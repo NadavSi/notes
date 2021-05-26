@@ -15,7 +15,23 @@ exports.getNotes = (req, res, next) => {
     .catch();
 }
 exports.getNote = (req, res, next) => {
-  res.send([]);
+  Note.findOne({ _id: req.params.id })
+  .then(note => {
+    if (note) {
+      res.status(200).json(note);
+    } else {
+      res.status(404).json({ status: "-1", message: "note not found!" });
+    }
+  })
+  // .catch(error => {
+  //   res.status(500).json({
+  //     error: error.message,
+  //     status: "-99",
+  //     message: "Fetching note failed!"
+  //   });
+  // });
+  // console.log(req.params.id)
+  // res.send([]);
 }
 exports.createNote = (req, res, next) => {
   let note = new Note(req.body);
