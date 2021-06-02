@@ -17,3 +17,6 @@ to use free db register or login to mongo db atlas free cluster
 
 
 Run `npm run notes`. this will run bote server and client scripts and start the app. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+
+*work in progress not all functional
