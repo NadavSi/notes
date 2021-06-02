@@ -13,7 +13,7 @@ export class NotesService {
   private notes: Note[] = [];
   private notesArray = new Subject<Note[]>();
 
-  toggleNote = new EventEmitter<string>();
+  singleNote = new EventEmitter<Note>();
 
   constructor(private httpService: HttpService) {}
 

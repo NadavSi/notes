@@ -1,6 +1,7 @@
 import { NotesService } from './../../notes/notes.service';
 import { Component, OnInit, Output } from '@angular/core';
 import * as EventEmitter from 'events';
+import { Note } from 'src/app/notes/note.model';
 
 @Component({
   selector: 'app-top-nav',
@@ -15,6 +16,6 @@ export class TopNavComponent implements OnInit {
   }
 
   createNote() {
-    this.notesService.toggleNote.emit('new');
+    this.notesService.singleNote.emit(new Note);
   }
 }

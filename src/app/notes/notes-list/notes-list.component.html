@@ -3,7 +3,7 @@
     <div class="container">
       <div *ngFor="let note of notes">
         <div style="border: 1px solid; border-radius: 5px; margin: 3px 0;">
-          <div (click)="onUpdate()" fxflex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="noteTitle">
+          <div (click)="onUpdate(note)" fxflex fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="noteTitle">
             <div fxFlex="10%" fxFlex.sm="30%" fxFlex.xs="30%" fxFlexOrder="1" style="padding: 5px 0 5px 5px">
               <span class="badge badge-pill badge-success">
                 {{ note.createdAt | date }}

@@ -17,16 +17,14 @@ export class NotesFormComponent implements OnInit {
   constructor(private notesService: NotesService) { }
 
   ngOnInit(): void {
-    this.notesService.toggleNote.subscribe(
-      (status) => {
-        this.status = status;
-        if (status == 'new') {
+    this.notesService.singleNote.subscribe(
+      (note) => {
+        console.log(note);
+        this.status = note == null ? 'new' : 'update';
+        if (this.status == 'new') {
           this.note = new Note();
         } else {
-          this.notesService.fetchNote("60807e26bf7ea653e004e66e")
-          .subscribe(note => {
             this.note = note;
-          });
         }
       }
     );
@@ -54,6 +52,6 @@ export class NotesFormComponent implements OnInit {
   }
 
   onClose() {
-    this.notesService.toggleNote.emit('close');
+    this.notesService.singleNote.emit(null);
   }
 }

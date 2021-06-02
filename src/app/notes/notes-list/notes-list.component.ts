@@ -54,17 +54,18 @@ export class NotesListComponent implements OnInit {
     this.notesSub = this.notesService.getNotesData().subscribe((notes: Note[]) => {
       this.notes = notes;
     });
-    this.notesService.toggleNote.subscribe(
-      (status) => {
-        if (status == 'new' || status == 'update') { this.isOpen = true; }
-        if (status == 'close') { this.isOpen = false; }
+    this.notesService.singleNote.subscribe(
+      (note) => {
+        this.isOpen = note == null ?  false : true;
+        // if (status == 'close') { this.isOpen = false; }
       }
     );
     // console.log(this.notes);
   }
 
-  onUpdate() {
-    this.notesService.toggleNote.emit('update');
+  onUpdate(note) {
+    this.notesService.singleNote.emit(note);
+    // this.notesService.noteid = noteid;
   }
 
   ngOnDestroy(): void {
